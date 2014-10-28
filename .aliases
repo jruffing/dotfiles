@@ -141,4 +141,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias reload="exec $SHELL -l"
 
 # Faster npm for Europeans
-command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
+#command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
+
+# Faster npm for Americans
+command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.org/"
