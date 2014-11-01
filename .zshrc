@@ -15,8 +15,8 @@ fi
 
 # Customize to your needs...
 
-for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
-
+#for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
+for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 source ~/.zsh/checks.zsh
 source ~/.zsh/colors.zsh
@@ -29,6 +29,4 @@ source ~/.zsh/bindkeys.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
-source  ${HOME}/.dotfiles/z/z.sh
-
-
+#source  ${HOME}/.dotfiles/z/z.sh
