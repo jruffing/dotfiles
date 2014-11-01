@@ -149,10 +149,17 @@ command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.o
 # necessary to make rake work inside of zsh
 alias rake="noglob rake"
 
-# -------------------------------------------------------------------
-# Python virtualenv
-# -------------------------------------------------------------------
+#####################################################################
+# python virtualenv													#
+#####################################################################
 alias mkenv='mkvirtualenv'
 alias on="workon"
 alias off="deactivate"
 
+
+#####################################################################
+# java home															#
+#####################################################################
+alias java6="export JAVA_HOME=`/usr/libexec/java_home -v1.6`"
+alias java7="export JAVA_HOME=`/usr/libexec/java_home -v1.7`"
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8`"

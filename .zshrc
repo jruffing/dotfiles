@@ -29,4 +29,7 @@ source ~/.zsh/bindkeys.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/zsh_hooks.zsh
+
+source ~/.nvm/nvm.sh
+
 #source  ${HOME}/.dotfiles/z/z.sh
