@@ -1,7 +1,5 @@
 # Executes commands at the start of an interactive session.
 
-
-
 #############################################################
 # sources                                                   #
 #############################################################
@@ -23,16 +21,20 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
     source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 
 #############################################################
-# zsh plugins                                               #
+# load antigen                                              #
 #############################################################
 
-# antigen plugin manager
-# -----------------------------------------------------------
-# load antigen
-source ~/.antigen/antigen.zsh
+if [[ ! -d "$HOME/.antigen/" ]]; then
+  mkdir "$HOME/.antigen"
+  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > $HOME/.antigen/.antigen.zsh
+  source $HOME/.antigen/.antigen.zsh
+else
+  source $HOME/.antigen/.antigen.zsh
+fi
+
 
 #############################################################
-# zsh plugins                                               #
+# load antigen plugins                                      #
 #############################################################
 
 # package management
