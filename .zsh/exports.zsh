@@ -1,12 +1,29 @@
+#############################################################
+# text editor                                               #
+#############################################################
 # Make vim the default editor
 export EDITOR="vim";
+
+#############################################################
+# shell prefs                                               #
+#############################################################
+
+#export PATH="$HOME/.bin:$PATH"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
 export HISTCONTROL=ignoredups;
+
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
+
+export TERM="xterm-256color"
+
+
+#############################################################
+# sysem prefs                                               #
+#############################################################
 
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
@@ -21,12 +38,17 @@ export MANPAGER="less -X";
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto";
 
+
+#############################################################
+# package manager                                           #
+#############################################################
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 
-#export PATH="$HOME/.bin:$PATH"
-
+#############################################################
+# programming envt                                          #
+#############################################################
 
 # ruby
 # -----------------------------------------------------
@@ -64,7 +86,24 @@ source $(brew --prefix nvm)/nvm.sh
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.7/Home
 
 
-
+# amazon
+# -----------------------------------------------------
+#export JAVA_HOME="$(/usr/libexec/java_home)"
+export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
+export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
+export AWS_AUTO_SCALING_HOME="/usr/local/Cellar/auto-scaling/1.0.61.3/libexec"
+export AWS_CLOUDFORMATION_HOME="/usr/local/Cellar/aws-cfn-tools/1.0.12/libexec"
+export AWS_CREDENTIAL_FILE="<path to="" the="" credentials="" file="">"
+export AWS_ELASTICACHE_HOME="/usr/local/Cellar/aws-elasticache/1.9.000/libexec"
+export AWS_ELB_HOME="/usr/local/Cellar/elb-tools/1.0.23.0/libexec"
+export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
+export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/jars"
+export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
+export AWS_SNS_HOME="/usr/local/Cellar/aws-sns-cli/2013-09-27/libexec"
+export AWS_CLOUDWATCH_HOME="/usr/local/Cellar/cloud-watch/1.0.13.4/libexec"
+export SERVICE_HOME="$AWS_CLOUDWATCH_HOME"
+export EC2_AMITOOL_HOME="/usr/local/Cellar/ec2-ami-tools/1.4.0.9/libexec"
+export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.14.001/libexec"
 
 
 
