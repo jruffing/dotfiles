@@ -37,7 +37,9 @@ export MANPAGER="less -X";
 ###############################################################################
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+
+# this is causing a permission denied error
+#export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 
 ###############################################################################
@@ -47,26 +49,26 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 export PATH="$HOME/.bin:$PATH"
 
 # ruby
-export PATH="$PATH:$HOME/.rvm/bin"    # Add RVM to PATH for scripting
-export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$PATH:$HOME/.rvm/bin"    # Add RVM to PATH for scripting
+#export PATH="$HOME/.rbenv/bin:$PATH"
 
 # python
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV
+#export WORKON_HOME=$HOME/.virtualenvs
+#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+#export PIP_VIRTUALENV_BASE=$WORKON_HOME
+#export PIP_RESPECT_VIRTUALENV=true
+#export PIP_RESPECT_VIRTUALENV
 
-if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
-    source /usr/local/share/python/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
+#if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
+#    source /usr/local/share/python/virtualenvwrapper.sh
+#else
+#    echo "WARNING: Can't find virtualenvwrapper.sh"
+#fi
 
 # node.js
-export PATH="$PATH:/usr/local/lib/node_modules"
-source $(brew --prefix nvm)/nvm.sh
-#export NODE_PATH="/usr/local/lib/node"
-export PATH="$PATH:/usr/local/share/npm/bin"
-#export PATH="/usr/local/share/npm/bin:$PATH"
+#export PATH="$PATH:/usr/local/lib/node_modules"
+#source $(brew --prefix nvm)/nvm.sh
+    #export NODE_PATH="/usr/local/lib/node"
+#export PATH="$PATH:/usr/local/share/npm/bin"
+    #export PATH="/usr/local/share/npm/bin:$PATH"
