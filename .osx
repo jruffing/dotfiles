@@ -156,9 +156,9 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+#defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+#defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Disable “natural” (Lion-style) scrolling
@@ -726,6 +726,20 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+###############################################################################
+# Xcode																		  #
+###############################################################################
+
+# Accept Xcode license agreement
+defaults write "/Library/Preferences/com.apple.dt.Xcode.plist" IDELastGMLicenseAgreedTo -string "{string "licenseID" of dictionary of file "/Applications/Xcode.app/Contents/Resources/LicenseInfo.plist"}"
+defaults write "/Library/Preferences/com.apple.dt.Xcode.plist" IDEXcodeVersionForAgreedToGMLicense -string "{string "CFBundleShortVersionString" of dictionary of file "/Applications/Xcode.app/Contents/version.plist"}"
+
+# Always use spaces for indenting
+defaults write com.apple.dt.Xcode DVTTextIndentUsingTabs -bool false
+
+# Show tab bar
+defaults write com.apple.dt.Xcode AlwaysShowTabBar -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #

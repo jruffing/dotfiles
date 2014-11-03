@@ -253,3 +253,82 @@ function myip() {
   ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
   ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
 }
+
+fancy_echo() {
+  printf "\n%b\n" "$1"
+}
+
+###############################################################################
+# brew & cask helper utils                                                    #
+###############################################################################
+
+# brew helper utils
+# ==============================
+
+brew_install_or_upgrade() {
+  if brew_is_installed "$1"; then
+    if brew_is_upgradable "$1"; then
+      brew upgrade "$@"
+    fi
+  else
+    brew install "$@"
+  fi
+}
+
+brew_is_installed() {
+  local NAME=$(brew_expand_alias "$1")
+
+  brew list -1 | grep -Fqx "$NAME"
+}
+
+brew_is_upgradable() {
+  local NAME=$(brew_expand_alias "$1")
+
+  brew outdated --quiet "$NAME" >/dev/null
+  [[ $? -ne 0 ]]
+}
+
+brew_expand_alias() {
+  brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
+}
+
+brew_launchctl_restart() {
+  local NAME=$(brew_expand_alias "$1")
+  local DOMAIN="homebrew.mxcl.$NAME"
+  local PLIST="$DOMAIN.plist"
+
+  mkdir -p ~/Library/LaunchAgents
+  ln -sfv /usr/local/opt/$NAME/$PLIST ~/Library/LaunchAgents
+
+  if launchctl list | grep -q $DOMAIN; then
+    launchctl unload ~/Library/LaunchAgents/$PLIST >/dev/null
+  fi
+  launchctl load ~/Library/LaunchAgents/$PLIST >/dev/null
+}
+
+
+# cask helper utils
+# ==============================
+
+brew_cask_expand_alias() {
+  brew cask info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
+}
+
+brew_cask_is_installed() {
+  local NAME=$(brew_cask_expand_alias "$1")
+  brew cask list -1 | grep -Fqx "$NAME"
+}
+
+brew_cask_install() {
+  if ! brew_cask_is_installed "$1"; then
+    brew cask install "$@"
+  fi
+}
+
+brew_cask_install_or_upgrade() {
+  if brew_cask_is_installed "$1"; then
+    echo "$1 is already installed, brew cask upgrade is not yet implemented"
+  else
+    brew cask install "$@"
+  fi
+}

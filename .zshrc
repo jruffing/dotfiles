@@ -26,10 +26,10 @@ for config_file ($HOME/.zsh/*.zsh) source $config_file
 
 if [[ ! -d "$HOME/.antigen/" ]]; then
   mkdir "$HOME/.antigen"
-  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > $HOME/.antigen/.antigen.zsh
-  source $HOME/.antigen/.antigen.zsh
+  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/antigen.zsh > "$HOME/.antigen/antigen.zsh"
+  source $HOME/.antigen/antigen.zsh
 else
-  source $HOME/.antigen/.antigen.zsh
+  source $HOME/.antigen/antigen.zsh
 fi
 
 
@@ -99,7 +99,7 @@ antigen bundle docker
 
 # Secret info
 # -----------------------------------------------------------
-antigen bundle git@github.com:jruffing/secret.git
+# antigen bundle git@github.com:jruffing/secret.git
 
 #############################################################
 # zsh theme                                                 #

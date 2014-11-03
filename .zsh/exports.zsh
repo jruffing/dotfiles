@@ -47,7 +47,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 
 #############################################################
-# programming envt                                          #
+# programming envts                                         #
 #############################################################
 
 # ruby

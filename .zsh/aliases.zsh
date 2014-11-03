@@ -140,14 +140,12 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-# Faster npm for Europeans
-#command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
-
 # Faster npm for Americans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.org/"
 
 # necessary to make rake work inside of zsh
 alias rake="noglob rake"
+
 
 #####################################################################
 # python virtualenv													#
@@ -163,3 +161,14 @@ alias off="deactivate"
 alias java6="export JAVA_HOME=`/usr/libexec/java_home -v1.6`"
 alias java7="export JAVA_HOME=`/usr/libexec/java_home -v1.7`"
 alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8`"
+
+
+#####################################################################
+# pivotal tracker													#
+#####################################################################
+alias stories="pt "
+
+#####################################################################
+# pivotal tracker													#
+#####################################################################
+alias appium="pt "

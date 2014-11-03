@@ -1,10 +1,15 @@
 # Make vim the default editor
 export EDITOR="vim";
 
+###############################################################################
+# shell                                                                       #
+###############################################################################
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768;
 export HISTFILESIZE=$HISTSIZE;
 export HISTCONTROL=ignoredups;
+
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
@@ -12,40 +17,56 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto";
+
+
+###############################################################################
+# man pages                                                                   #
+###############################################################################
+
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="${yellow}";
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X";
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto";
+
+###############################################################################
+# homebrew                                                                    #
+###############################################################################
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications";
 
 
+###############################################################################
+# sys path                                                                    #
+###############################################################################
 
 export PATH="$HOME/.bin:$PATH"
 
-# Ruby
+# ruby
 export PATH="$PATH:$HOME/.rvm/bin"    # Add RVM to PATH for scripting
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-# Python
+# python
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_RESPECT_VIRTUALENV
+
 if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
     source /usr/local/share/python/virtualenvwrapper.sh
 else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
 
-
 # node.js
 export PATH="$PATH:/usr/local/lib/node_modules"
 source $(brew --prefix nvm)/nvm.sh
+#export NODE_PATH="/usr/local/lib/node"
+export PATH="$PATH:/usr/local/share/npm/bin"
+#export PATH="/usr/local/share/npm/bin:$PATH"
