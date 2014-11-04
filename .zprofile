@@ -17,7 +17,7 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
+export EDITOR='subl -n -w'
 export VISUAL='nano'
 export PAGER='less'
 

@@ -162,4 +162,5 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Package Management
 # ----------------------------------
 # In order to make your Casks install to sensible and predictable locations
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom"
+# !!! good idea but makes homebrew fail installation !!!
+#export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/etc/Caskroom"

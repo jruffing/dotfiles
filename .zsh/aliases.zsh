@@ -150,6 +150,7 @@ alias rake="noglob rake"
 #####################################################################
 # python virtualenv													#
 #####################################################################
+
 alias mkenv='mkvirtualenv'
 alias on="workon"
 alias off="deactivate"
@@ -158,17 +159,20 @@ alias off="deactivate"
 #####################################################################
 # java home															#
 #####################################################################
-alias java6="export JAVA_HOME=`/usr/libexec/java_home -v1.6`"
-alias java7="export JAVA_HOME=`/usr/libexec/java_home -v1.7`"
-alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8`"
+
+#alias java6="export JAVA_HOME=`/usr/libexec/java_home -v1.6`"
+#alias java7="export JAVA_HOME=`/usr/libexec/java_home -v1.7`"
+#alias java8="export JAVA_HOME=`/usr/libexec/java_home -v1.8`"
 
 
 #####################################################################
 # pivotal tracker													#
 #####################################################################
-alias stories="pt "
+
+#alias stories="pt "
 
 #####################################################################
 # pivotal tracker													#
 #####################################################################
-alias appium="pt "
+
+#alias appium="appium "
