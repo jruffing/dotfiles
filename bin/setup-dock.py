@@ -159,6 +159,10 @@ HIT_Apps = [
     "args": [ "--before", "iTunes" ]
     },
     {
+    "path": "~/Applications/Vagrant Manager.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
     "path": "~/Applications/Sublime Text.app",
     "args": [ "--before", "iTunes" ]
     }
