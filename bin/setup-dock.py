@@ -67,22 +67,22 @@ thirdPartyApps = [
     {
     "path": "/Applications/1Password 5.app",
     "args": [ "--before", "Mail" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/Tweetbot.app",
     "args": [ "--before", "iTunes" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/Reeder.app",
     "args": [ "--before", "iTunes" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/Transmit.app",
     "args": [ "--before", "iTunes" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/Aperture.app",
@@ -97,12 +97,12 @@ thirdPartyApps = [
     {
     "path": "/Applications/Gitbox.app",
     "args": [ "--before", "Activity Monitor" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/BBEdit.app",
     "args": [ "--before", "Activity Monitor" ],
-    "forced": True
+    "forced": False
     },
     {
     "path": "/Applications/Spotify.app",
@@ -128,43 +128,98 @@ thirdPartyApps = [
 HIT_Apps = [
     {
     "path": "/opt/homebrew-cask/Caskroom/appium/1.3.1/Appium.app",
-    "args": [ "--after", "Safari" ]
+    "args": [ "--after", "Safari" ],
+    "forced": True
     },
     {
     "path": "~/Applications/Appium.app",
-    "args": [ "--after", "Safari" ]
+    "args": [ "--after", "Safari" ],
+    "forced": True
     },
     {
     "path": "~/Applications/GitHub.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     },
     {
     "path": "~/Applications/iTerm.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     },
     {
     "path": "~/Applications/CheatSheet.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": False
     },
     {
     "path": "~/Applications/Alfred 2.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     },
     {
     "path": "~/Applications/InelliJ IDEA 13.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     },
     {
     "path": "~/Applications/PyCharm CE.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     },
     {
     "path": "~/Applications/Vagrant Manager.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
+    },
+    {
+    "path": "~/Applications/Dash.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": True
+    },
+    {
+    "path": "~/Applications/Atom.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
+    },
+    {
+    "path": "~/Applications/Evernote.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": True
+    },
+    {
+    "path": "~/Applications/Fluid.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
+    },
+    {
+    "path": "~/Applications/Mou.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
+    },
+    {
+    "path": "~/Applications/Tunnelblick.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": True
+    },
+    {
+    "path": "~/Applications/Skype.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": True
+    },
+    {
+    "path": "~/Applications/Google Chrome.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
+    },
+    {
+    "path": "~/Applications/Firefox.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
     },
     {
     "path": "~/Applications/Sublime Text.app",
-    "args": [ "--before", "iTunes" ]
+    "args": [ "--before", "iTunes" ],
+    "forced": True
     }
     ]
 
@@ -281,13 +336,13 @@ def main(argv=None):
         # Add standard Apple apps
         for anApp in appleApps:
             dockutilAdd(anApp, None)
-            #print "Added %s" % anApp
+            print "Added %s" % anApp
         
         # Add more Apple apps
         for anApp in appleAppsWithVaryingNames:
             if os.path.exists(anApp["path"]):
                 dockutilAdd(anApp["path"], anApp["args"])
-                #print "Added %s" % anApp["path"]
+                print "Added %s" % anApp["path"]
             else:
                 print "Skipped %s" % anApp["path"]
         
@@ -295,7 +350,7 @@ def main(argv=None):
         for anApp in thirdPartyApps:
             if os.path.exists(anApp["path"]) or anApp["forced"]:
                 dockutilAdd(anApp["path"], anApp["args"])
-                #print "Added %s" % anApp["path"]
+                print "Added %s" % anApp["path"]
             else:
                 print "Skipped %s" % anApp["path"]
 
@@ -303,7 +358,7 @@ def main(argv=None):
         for anApp in HIT_Apps:
             if os.path.exists(anApp["path"]) or anApp["forced"]:
                 dockutilAdd(anApp["path"], anApp["args"])
-                #print "Added %s" % anApp["path"]
+                print "Added %s" % anApp["path"]
             else:
                 print "Skipped %s" % anApp["path"]
         
