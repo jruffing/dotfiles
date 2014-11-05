@@ -140,9 +140,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
-# Faster npm for Europeans
-#command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
-
 # Faster npm for Americans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.org/"
 
@@ -155,4 +152,9 @@ alias rake="noglob rake"
 alias mkenv='mkvirtualenv'
 alias on="workon"
 alias off="deactivate"
+
+
+alias arch32=export ARCHFLAGS="-arch x86_32"
+alias arch64=export ARCHFLAGS="-arch x86_64"
+
 

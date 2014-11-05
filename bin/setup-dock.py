@@ -31,8 +31,8 @@ appleApps = [
     "/Applications/Xcode.app",
     "/Applications/Utilities/Activity Monitor.app",
     "/Applications/Utilities/Console.app",
-    "/Applications/Utilities/Disk Utility.app",
-    "/Applications/Utilities/Terminal.app"
+    "/Applications/Utilities/Disk Utility.app"
+    #"/Applications/Utilities/Terminal.app"
     ]
 
 # =======================================
@@ -118,6 +118,49 @@ thirdPartyApps = [
     "path": "/Applications/Remote Desktop.app",
     "args": [ "--after", "Terminal" ],
     "forced": False
+    }
+    ]
+
+# =======================================
+# HIT Applications with different
+# names in different OS versions
+# =======================================
+HIT_Apps = [
+    {
+    "path": "/opt/homebrew-cask/Caskroom/appium/1.3.1/Appium.app",
+    "args": [ "--after", "Safari" ]
+    },
+    {
+    "path": "~/Applications/Appium.app",
+    "args": [ "--after", "Safari" ]
+    },
+    {
+    "path": "~/Applications/GitHub.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/iTerm.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/CheatSheet.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/Alfred 2.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/InelliJ IDEA 13.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/PyCharm CE.app",
+    "args": [ "--before", "iTunes" ]
+    },
+    {
+    "path": "~/Applications/Sublime Text.app",
+    "args": [ "--before", "iTunes" ]
     }
     ]
 
@@ -246,6 +289,14 @@ def main(argv=None):
         
         # Add 3rd party apps
         for anApp in thirdPartyApps:
+            if os.path.exists(anApp["path"]) or anApp["forced"]:
+                dockutilAdd(anApp["path"], anApp["args"])
+                #print "Added %s" % anApp["path"]
+            else:
+                print "Skipped %s" % anApp["path"]
+
+        # Add HIT apps
+        for anApp in HIT_Apps:
             if os.path.exists(anApp["path"]) or anApp["forced"]:
                 dockutilAdd(anApp["path"], anApp["args"])
                 #print "Added %s" % anApp["path"]
