@@ -157,7 +157,7 @@ HIT_Apps = [
     "forced": True
     },
     {
-    "path": "~/Applications/InelliJ IDEA 13.app",
+    "path": "~/Applications/IntelliJ IDEA 13.app",
     "args": [ "--before", "iTunes" ],
     "forced": True
     },
