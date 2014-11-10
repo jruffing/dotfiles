@@ -127,11 +127,6 @@ thirdPartyApps = [
 # =======================================
 HIT_Apps = [
     {
-    "path": "/opt/homebrew-cask/Caskroom/appium/1.3.1/Appium.app",
-    "args": [ "--after", "Safari" ],
-    "forced": True
-    },
-    {
     "path": "~/Applications/Appium.app",
     "args": [ "--after", "Safari" ],
     "forced": True
@@ -213,6 +208,11 @@ HIT_Apps = [
     },
     {
     "path": "~/Applications/Firefox.app",
+    "args": [ "--before", "iTunes" ],
+    "forced": False
+    },
+    {
+    "path": "'/Applications/Xcode.app/Contents/Applications/Accessibility Inspector.app'",
     "args": [ "--before", "iTunes" ],
     "forced": False
     },
