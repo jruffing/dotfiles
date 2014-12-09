@@ -20,6 +20,6 @@ unset file;
 autoload -U promptinit && promptinit
 prompt pure
 
-source ~/.virtualenvs/default/bin/activate
+#source ~/.virtualenvs/default/bin/activate
 
 export PATH="$HOME/.bin:$PATH"
